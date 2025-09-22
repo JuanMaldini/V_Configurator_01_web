@@ -6,7 +6,7 @@ function App() {
     <div className="landing-root centered-container">
       <div className="centered-content">
         <h1 className="landing-title">Pod Configurator</h1>
-        <Link to="/vp-ConfiguratorPlayer" className="landing-link">
+        <Link to="/vp-podconfigurator" className="landing-link">
           <div className="noUnderline">START APP</div>
           <img
             src="../icons/Logo.png"

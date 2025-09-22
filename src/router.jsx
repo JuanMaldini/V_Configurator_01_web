@@ -6,7 +6,7 @@ const AppRouter = () => (
   <Router>
     <Routes>
       <Route path="/" element={<App />} />
-      <Route path="/vp-ConfiguratorPlayer" element={<ConfiguratorPlayer />} />
+      <Route path="/vp-podconfigurator" element={<ConfiguratorPlayer />} />
     </Routes>
   </Router>
 );
