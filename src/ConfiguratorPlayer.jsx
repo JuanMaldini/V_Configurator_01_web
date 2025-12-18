@@ -6,7 +6,7 @@ function ConfiguratorPlayer() {
       <iframe
       style={{ visibility: 'visible', border: 'none' }}
       id='iframe_1'
-      src='https://connector.eagle3dstreaming.com/v6/eyJvd25lciI6IlZhbmlzaGluZ1BvaW50M0QiLCJhcHBOYW1lIjoiVkNvbmZpZ3VyYXRvciIsImNvbmZpZ05hbWUiOiJWQ29uZmlndXJhdG9yIn0='
+      src={import.meta.env.VITE_SRC_IFRAME_URL}
       height='100%'
       width='100%'
       allowfullscreen
