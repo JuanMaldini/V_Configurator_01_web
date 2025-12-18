@@ -1,0 +1,52 @@
+.sidebar-root {
+  top: 0;
+  height: 100vh;
+  display: flex;
+  width: 100%;
+}
+
+.sidebar-shell {
+  width: 260px;
+  background: #ffffff;
+  border-left: 1px solid #e0e0e0;
+}
+
+.sidebar-content {
+  flex: 1;
+  height: 100%;
+  display: flex;
+}
+
+.sidebar-overlay {
+  display: none;
+}
+
+.sidebar-panel {
+  height: 100%;
+  padding: 16px 14px;
+  background: inherit;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.sidebar-title {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #222222;
+}
+
+.sidebar-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.sidebar-item {
+  font-size: 0.95rem;
+  color: #444444;
+}
