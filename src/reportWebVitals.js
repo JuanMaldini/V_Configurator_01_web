@@ -2,7 +2,7 @@ import { onCLS, onINP, onFCP, onLCP, onTTFB } from 'web-vitals';
 
 function sendToAnalytics(metric) {
   // Aquí puedes enviar las métricas a tu servicio de analytics preferido
-  console.log('Web Vitals:', metric);
+  // console.log('Web Vitals:', metric);
 }
 
 onCLS(sendToAnalytics);

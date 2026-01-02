@@ -1,12 +1,12 @@
 .sidebar-root {
   top: 0;
-  height: 100vh;
+  height: 100dvh;
   display: flex;
   width: 100%;
 }
 
 .sidebar-shell {
-  width: 260px;
+  width: auto;
   background: #ffffff;
   border-left: 1px solid #e0e0e0;
 }
@@ -30,13 +30,6 @@
   gap: 12px;
 }
 
-.sidebar-title {
-  margin: 0;
-  font-size: 1rem;
-  font-weight: 600;
-  color: #222222;
-}
-
 .sidebar-list {
   list-style: none;
   margin: 0;
@@ -49,4 +42,9 @@
 .sidebar-item {
   font-size: 0.95rem;
   color: #444444;
+}
+
+.sidebar-item:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
 }

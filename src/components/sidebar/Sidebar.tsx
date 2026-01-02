@@ -1,25 +1,93 @@
-import type { ReactNode } from "react";
+import { useState, type ReactNode } from "react";
 import Sidebar from "react-sidebar";
+import { emitDescriptor } from "../eagle3dstreaming-websdk/e3dsBridge";
+import { generateAndOpenPdf } from "../pdf/generateAndOpenPdf";
+import { SketchTintPicker } from "../coloring/SketchTintPicker";
 import "./Sidebar.css";
 
-const menuItems = ["Home", "Option 1", "Option 2", "Option 3", "Option 4", "Option 5"];
+const dropEnviroments = ["Space 01", "Space 02", "Space 03"];
 
 interface SidebarLayoutProps {
   children: ReactNode;
 }
 
 function SidebarLayout({ children }: SidebarLayoutProps) {
+  const [isGeneratingPdf, setIsGeneratingPdf] = useState(false);
+  const [isTintOpen, setIsTintOpen] = useState(false);
+  const [tintHex, setTintHex] = useState("#ffffff");
+
+  const handleGeneratePdf = async () => {
+    if (isGeneratingPdf) return;
+    setIsGeneratingPdf(true);
+    try {
+      await generateAndOpenPdf({
+        title: "Configurator Export (A4)",
+      });
+    } finally {
+      setIsGeneratingPdf(false);
+    }
+  };
+
   return (
     <Sidebar
       sidebar={
         <nav className="sidebar-panel">
-          <h2 className="sidebar-title">Menu</h2>
           <ul className="sidebar-list">
-            {menuItems.map((item) => (
-              <li key={item} className="sidebar-item">
-                {item}
-              </li>
-            ))}
+            <li className="sidebar-item">
+              <button
+                type="button"
+                className="sidebar-item"
+                onClick={handleGeneratePdf}
+                disabled={isGeneratingPdf}
+              >
+                {isGeneratingPdf ? "Generating PDF…" : "PDF"}
+              </button>
+            </li>
+
+            <li className="sidebar-item">
+              <button
+                type="button"
+                className="sidebar-item"
+                onClick={() => setIsTintOpen((prev) => !prev)}
+              >
+                Tint
+              </button>
+
+              {isTintOpen ? (
+                <div style={{ marginTop: 8 }}>
+                  <SketchTintPicker hex={tintHex} onHexChange={setTintHex} />
+                </div>
+              ) : null}
+            </li>
+
+            <li className="sidebar-item">
+              <button
+                type="button"
+                className="sidebar-item"
+                onClick={() => emitDescriptor({ field: "Render" })}
+              >
+                Render
+              </button>
+            </li>
+
+            <li className="sidebar-item">
+              <details>
+                <summary className="sidebar-item">Enviroments</summary>
+                <ul className="sidebar-list">
+                  {dropEnviroments.map((env) => (
+                    <li key={env} className="sidebar-item">
+                      <button
+                        type="button"
+                        className="sidebar-item"
+                        onClick={() => emitDescriptor({ field: env })}
+                      >
+                        {env}
+                      </button>
+                    </li>
+                  ))}
+                </ul>
+              </details>
+            </li>
           </ul>
         </nav>
       }
@@ -27,8 +95,8 @@ function SidebarLayout({ children }: SidebarLayoutProps) {
       docked
       pullRight
       touch={false}
-      shadow={false}
-      transitions={false}
+      shadow={true}
+      transitions={true}
       onSetOpen={() => {}}
       rootClassName="sidebar-root"
       sidebarClassName="sidebar-shell"
