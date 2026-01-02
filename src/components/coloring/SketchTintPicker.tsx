@@ -16,7 +16,8 @@ export function SketchTintPicker({ hex, onHexChange }: SketchTintPickerProps) {
         style={{ "--tint-preview-color": hex } as React.CSSProperties}
         onChange={(color) => {
           // Defensive: if a hexa ever slips in, keep it as #RRGGBB.
-          const nextHex = typeof color.hex === "string" ? color.hex.slice(0, 7) : hex;
+          const nextHex =
+            typeof color.hex === "string" ? color.hex.slice(0, 7) : hex;
           onHexChange(nextHex);
         }}
       />
