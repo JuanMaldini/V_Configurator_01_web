@@ -1,16 +1,7 @@
 import "./App.css";
 import SidebarLayout from "./components/sidebar/Sidebar";
-import { useEffect } from "react";
-import { configureE3dsBridge } from "./components/eagle3dstreaming-websdk/e3dsBridge";
 
 function ConfiguratorPlayer() {
-  useEffect(() => {
-    configureE3dsBridge({
-      iframeId: "iframe_1",
-      iframeSrc: import.meta.env.VITE_SRC_IFRAME_URL,
-    });
-  }, []);
-
   return (
     <div className="rooot">
       <SidebarLayout>
