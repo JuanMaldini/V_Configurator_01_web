@@ -1,0 +1,35 @@
+.sketch-tint-picker .w-color-swatch {
+  display: none !important;
+}
+
+/* Fallback: if alpha UI still renders, hide it. */
+.sketch-tint-picker .w-color-alpha {
+  display: none !important;
+}
+
+.sketch-tint-picker .w-color-sketch {
+  padding-bottom: 6px;
+}
+
+/* Re-add a color preview square (without alpha UI). */
+.sketch-tint-picker .w-color-sketch > div:nth-child(2) {
+  position: relative;
+  padding-right: 34px; /* space for preview square */
+}
+
+.sketch-tint-picker .w-color-sketch > div:nth-child(2)::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 24px;
+  height: 24px;
+  margin: auto 0;
+  border-radius: 2px;
+  box-shadow: var(
+    --editable-input-box-shadow,
+    rgb(204 204 204) 0px 0px 0px 1px inset
+  );
+  background: var(--tint-preview-color, #ffffff);
+}
