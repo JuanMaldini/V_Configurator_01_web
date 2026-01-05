@@ -11,18 +11,13 @@
   },
   "dependencies": {
     "@react-pdf/renderer": "^4.3.2",
-    "@types/react-sidebar": "^3.0.4",
-    "@uiw/react-color": "^2.9.2",
     "react": "19.2.3",
     "react-dom": "19.2.3",
     "react-router-dom": "7.11.0",
-    "react-sidebar": "^3.0.2",
     "web-vitals": "^5.1.0"
   },
   "devDependencies": {
-    "@react-pdf/renderer": "4.3.2",
     "@types/react": "19.2.3",
-    "@uiw/react-color": "2.9.2",
     "@types/react-dom": "19.2.3",
     "@vitejs/plugin-react": "^5.0.3",
     "eslint": "^9.36.0",
