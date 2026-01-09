@@ -17,7 +17,7 @@ function ConfiguratorPlayer() {
         className="player-frame"
         style={{ visibility: "visible" }}
         id="iframe_1"
-        src={import.meta.env.SRC_IFRAME_URL}
+        src={import.meta.env.VITE_SRC_IFRAME_URL}
         height="100%"
         width="100%"
         allowFullScreen

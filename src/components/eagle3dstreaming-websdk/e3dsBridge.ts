@@ -3,17 +3,17 @@ export type E3dsIncomingUeMessage = {
   [key: string]: unknown;
 };
 
+export type E3dsIncomingCommand = {
+  cmd: string;
+  [key: string]: unknown;
+};
+
 export type E3dsCommandHandler = (
-  message: E3dsIncomingUeMessage
+  message: E3dsIncomingCommand
 ) => void | Promise<void>;
 
 export type E3dsCommandHandlers = Record<string, E3dsCommandHandler>;
 
-/**
- * Builds a simple command router for messages coming from the embedded player (UE).
- *
- * It expects objects that include a string `cmd` field and dispatches to `handlers[cmd]`.
- */
 export function createE3dsCommandRouter(handlers: E3dsCommandHandlers) {
   return async function routeE3dsCommand(message: unknown) {
     if (!message || typeof message !== "object") return false;
