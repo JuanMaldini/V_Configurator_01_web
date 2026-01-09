@@ -5,7 +5,7 @@ import {
 } from "./components/eagle3dstreaming-websdk/e3dsBridge";
 import { e3dsPdfCommandHandlers } from "./components/pdf/PdfDocument";
 
-function ConfiguratorPlayer() {
+function ConfiguratorPlayerTest() {
   const routeCommand = useMemo(
     () => createE3dsCommandRouter(e3dsPdfCommandHandlers),
     []
@@ -17,7 +17,7 @@ function ConfiguratorPlayer() {
         className="player-frame"
         style={{ visibility: "visible" }}
         id="iframe_1"
-        src={import.meta.env.SRC_IFRAME_URL}
+        src={import.meta.env.SRC_IFRAME_URL_TEST}
         height="100%"
         width="100%"
         allowFullScreen
@@ -27,4 +27,4 @@ function ConfiguratorPlayer() {
   );
 }
 
-export default ConfiguratorPlayer;
+export default ConfiguratorPlayerTest;
