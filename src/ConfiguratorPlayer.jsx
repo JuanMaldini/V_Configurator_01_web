@@ -5,6 +5,7 @@ import {
   connectE3dsWindowBridge,
 } from "./components/eagle3dstreaming-websdk/e3dsBridge";
 import { e3dsPdfCommandHandlers } from "./components/pdf/PdfDocument";
+import RecorderToggle from "./components/recorder/RecorderToggle";
 
 function ConfiguratorPlayer() {
   const iframeRef = useRef(null);
@@ -34,12 +35,13 @@ function ConfiguratorPlayer() {
 
   return (
     <div className="rooot">
+      <RecorderToggle iframeRef={iframeRef} />
       <iframe
         className="player-frame"
         style={{ visibility: "visible" }}
         id="iframe_1"
         ref={iframeRef}
-        src={import.meta.env.VITE_SRC_IFRAME_URL}
+        src={import.meta.env.VITE_SRC_IFRAME_URL_TEST}
         height="100%"
         width="100%"
         allowFullScreen
